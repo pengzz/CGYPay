@@ -19,8 +19,23 @@
 // 银联支付
 #import "UPPaymentControl.h"
 
-//pzz添加
-#import "ZZPayConstant.h"
-#import "ZZPayConstant.h"
+//pzz添
+//#import "ZZPayConstant.h"
+
+////#import <Foundation/Foundation.h>
+////引入一些头文件
+//#import "ZZSingleton.h"
+////#import "ZZBasePay.h"
+//#import "NSObject+ZZclass.h"
+//#import "ZZPay.h"
+//#import "ZZPayAliPayOrder.h"
+//#import "ZZPayUpOrder.h"
+//#import "ZZPayWxOrder.h"
+////
+//#import "ZZPayAliService.h"
+//#import "ZZPayUPService.h"
+//#import "ZZPayWxService.h"
+
+
 
 #endif /* CGYPay_Bridging_Header_h */

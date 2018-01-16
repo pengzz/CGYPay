@@ -18,7 +18,7 @@
 -(void)registerWxAPP:(NSString*)appid;
 @end
 
-@interface ZZBasePay: NSObject<ZZBasePayAble>
+@interface ZZBasePay: NSObject//<ZZBasePayAble>
 //NSSingletonH(sharedInstance)
 + (instancetype)sharedInstance;
 - (void)handleOpenURL:(NSURL *)url;

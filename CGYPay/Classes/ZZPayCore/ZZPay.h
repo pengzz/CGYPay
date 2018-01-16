@@ -8,6 +8,24 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZPayConstant.h"//TO DO
+#import "ZZBasePay.h"
+#import "NSObject+ZZclass.h"
+
+#import <Foundation/Foundation.h>
+//引入一些头文件
+#import "ZZPayConstant.h"
+//
+#import "ZZSingleton.h"
+#import "ZZBasePay.h"
+#import "NSObject+ZZclass.h"
+#import "ZZPay.h"
+#import "ZZPayAliPayOrder.h"
+#import "ZZPayUpOrder.h"
+#import "ZZPayWxOrder.h"
+//
+#import "ZZPayAliService.h"
+#import "ZZPayUPService.h"
+#import "ZZPayWxService.h"
 
 @interface ZZPay : NSObject
 

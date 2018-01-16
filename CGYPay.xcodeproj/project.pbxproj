@@ -12,11 +12,12 @@
 		1B87521C200E02210031CE30 /* ZZPayAliPayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87521B200E02210031CE30 /* ZZPayAliPayOrder.m */; };
 		1B87521F200E02560031CE30 /* ZZPayUpOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87521E200E02560031CE30 /* ZZPayUpOrder.m */; };
 		1B875222200E02800031CE30 /* ZZPayWxOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875221200E02800031CE30 /* ZZPayWxOrder.m */; };
-		1B875225200E02CC0031CE30 /* ZZPayAliService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875224200E02CC0031CE30 /* ZZPayAliService.m */; };
 		1B875228200E02F50031CE30 /* ZZPayUPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875227200E02F50031CE30 /* ZZPayUPService.m */; };
 		1B87522B200E030B0031CE30 /* ZZPayWxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87522A200E030B0031CE30 /* ZZPayWxService.m */; };
 		1B87522E200E053B0031CE30 /* NHAliOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87522D200E053B0031CE30 /* NHAliOrder.m */; };
 		1B875238200E28E20031CE30 /* ZZBasePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875236200E28E20031CE30 /* ZZBasePay.m */; };
+		1BFE6E8E200E2DE4004344BD /* ZZPayAliService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE6E8D200E2DE4004344BD /* ZZPayAliService.m */; };
+		1BFE6E91200E2E05004344BD /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE6E90200E2E05004344BD /* TestViewController.m */; };
 		83639ACA1CA50E9400708E8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83639AC91CA50E9400708E8E /* AppDelegate.swift */; };
 		83639ACC1CA50E9400708E8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83639ACB1CA50E9400708E8E /* ViewController.swift */; };
 		83639ACF1CA50E9400708E8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83639ACD1CA50E9400708E8E /* Main.storyboard */; };
@@ -61,8 +62,6 @@
 		1B87521E200E02560031CE30 /* ZZPayUpOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayUpOrder.m; sourceTree = "<group>"; };
 		1B875220200E02800031CE30 /* ZZPayWxOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayWxOrder.h; sourceTree = "<group>"; };
 		1B875221200E02800031CE30 /* ZZPayWxOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayWxOrder.m; sourceTree = "<group>"; };
-		1B875223200E02CC0031CE30 /* ZZPayAliService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZZPayAliService.h; path = CGYPay/Classes/AlipaySDK/ZZPayAliService.h; sourceTree = SOURCE_ROOT; };
-		1B875224200E02CC0031CE30 /* ZZPayAliService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZZPayAliService.m; path = CGYPay/Classes/AlipaySDK/ZZPayAliService.m; sourceTree = SOURCE_ROOT; };
 		1B875226200E02F50031CE30 /* ZZPayUPService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayUPService.h; sourceTree = "<group>"; };
 		1B875227200E02F50031CE30 /* ZZPayUPService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayUPService.m; sourceTree = "<group>"; };
 		1B875229200E030B0031CE30 /* ZZPayWxService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayWxService.h; sourceTree = "<group>"; };
@@ -71,6 +70,10 @@
 		1B87522D200E053B0031CE30 /* NHAliOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHAliOrder.m; sourceTree = "<group>"; };
 		1B875236200E28E20031CE30 /* ZZBasePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBasePay.m; sourceTree = "<group>"; };
 		1B875237200E28E20031CE30 /* ZZBasePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBasePay.h; sourceTree = "<group>"; };
+		1BFE6E8C200E2DE4004344BD /* ZZPayAliService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZPayAliService.h; path = CGYPay/Classes/AlipaySDk/ZZPayAliService.h; sourceTree = SOURCE_ROOT; };
+		1BFE6E8D200E2DE4004344BD /* ZZPayAliService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZPayAliService.m; path = CGYPay/Classes/AlipaySDk/ZZPayAliService.m; sourceTree = SOURCE_ROOT; };
+		1BFE6E8F200E2E05004344BD /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		1BFE6E90200E2E05004344BD /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		83639AC61CA50E9400708E8E /* CGYPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGYPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83639AC91CA50E9400708E8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83639ACB1CA50E9400708E8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 			children = (
 				83639AC91CA50E9400708E8E /* AppDelegate.swift */,
 				83639ACB1CA50E9400708E8E /* ViewController.swift */,
+				1BFE6E8F200E2E05004344BD /* TestViewController.h */,
+				1BFE6E90200E2E05004344BD /* TestViewController.m */,
 				83639ACD1CA50E9400708E8E /* Main.storyboard */,
 				83639AF21CA51EDB00708E8E /* FrameWork */,
 				83639AE51CA51C3400708E8E /* Supporting Files */,
@@ -272,8 +277,8 @@
 		839685281CAD695C00A55FD1 /* AlipaySDK */ = {
 			isa = PBXGroup;
 			children = (
-				1B875223200E02CC0031CE30 /* ZZPayAliService.h */,
-				1B875224200E02CC0031CE30 /* ZZPayAliService.m */,
+				1BFE6E8C200E2DE4004344BD /* ZZPayAliService.h */,
+				1BFE6E8D200E2DE4004344BD /* ZZPayAliService.m */,
 				839685291CAD695C00A55FD1 /* AlipaySDK.framework */,
 				8396852A1CAD695C00A55FD1 /* CGYPayAliService.swift */,
 			);
@@ -358,7 +363,7 @@
 				1B875228200E02F50031CE30 /* ZZPayUPService.m in Sources */,
 				83639ACC1CA50E9400708E8E /* ViewController.swift in Sources */,
 				839685271CAD149A00A55FD1 /* CGYPayWxOrder.swift in Sources */,
-				1B875225200E02CC0031CE30 /* ZZPayAliService.m in Sources */,
+				1BFE6E91200E2E05004344BD /* TestViewController.m in Sources */,
 				1B87522E200E053B0031CE30 /* NHAliOrder.m in Sources */,
 				8396852C1CAD695D00A55FD1 /* CGYPayAliService.swift in Sources */,
 				1B875222200E02800031CE30 /* ZZPayWxOrder.m in Sources */,
@@ -369,6 +374,7 @@
 				1B87521F200E02560031CE30 /* ZZPayUpOrder.m in Sources */,
 				839685241CAD149A00A55FD1 /* CGYPayChannel.swift in Sources */,
 				839685211CAD149A00A55FD1 /* CGYNSObjectExtension.swift in Sources */,
+				1BFE6E8E200E2DE4004344BD /* ZZPayAliService.m in Sources */,
 				1B875238200E28E20031CE30 /* ZZBasePay.m in Sources */,
 				839685261CAD149A00A55FD1 /* CGYPayUpOrder.swift in Sources */,
 				839685201CAD149A00A55FD1 /* BaseCGYPay.swift in Sources */,

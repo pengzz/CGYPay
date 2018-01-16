@@ -8,7 +8,9 @@
 
 #import "ZZBasePay.h"
 #import <AlipaySDK/AlipaySDK.h>//TO DO
+#import "ZZPayAliPayOrder.h"
 #import "ZZPayConstant.h"//TO DO
+//#import "ZZPay.h"
 
 //@interface ZZPayAliService : NSObject//BaseZZPay
 @interface ZZPayAliService : ZZBasePay

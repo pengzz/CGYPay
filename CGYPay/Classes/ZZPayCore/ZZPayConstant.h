@@ -8,8 +8,8 @@
 
 //#import <Foundation/Foundation.h>
 
-#ifndef ZZPayConstant_h
-#define ZZPayConstant_h
+#ifndef ZZPay_Constant_h
+#define ZZPay_Constant_h
 
 
 /**
@@ -137,19 +137,19 @@ typedef void(^ZZPayCompleteBlock)(ZZPayStatusCode payStatus, ZZPayChannel payCha
 //XX TO DO//public typealias CGYPayCompletedBlock = (CGYPayStatusCode) -> Void
 
 
-#import <Foundation/Foundation.h>
-//引入一些头文件
-#import "ZZSingleton.h"
-#import "ZZBasePay.h"
-#import "NSObject+ZZclass.h"
-#import "ZZPay.h"
-#import "ZZPayAliPayOrder.h"
-#import "ZZPayUpOrder.h"
-#import "ZZPayWxOrder.h"
-//
-#import "ZZPayAliService.h"
-#import "ZZPayUPService.h"
-#import "ZZPayWxService.h"
+//#import <Foundation/Foundation.h>
+////引入一些头文件
+//#import "ZZSingleton.h"
+////#import "ZZBasePay.h"
+//#import "NSObject+ZZclass.h"
+//#import "ZZPay.h"
+//#import "ZZPayAliPayOrder.h"
+//#import "ZZPayUpOrder.h"
+//#import "ZZPayWxOrder.h"
+////
+//#import "ZZPayAliService.h"
+////#import "ZZPayUPService.h"
+////#import "ZZPayWxService.h"
 
 
 
