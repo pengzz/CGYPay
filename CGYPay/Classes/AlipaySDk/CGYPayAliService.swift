@@ -17,12 +17,13 @@ public class CGYPayAliService: BaseCGYPay {
     }
     
     // 发送支付宝支付
-    override public func sendPay(channel: CGYPayChannel, callBack: CGYPayCompletedBlock) {
+    //override
+    public func sendPay(channel: CGYPayChannel, callBack: @escaping CGYPayCompletedBlock) {
         payCallBack = callBack
         if case .aliPay(let order) = channel {
             AlipaySDK.defaultService().payOrder(order.toOrderString(), fromScheme: order.appScheme, callback: { [unowned self] resultDic in
                 if let dic = resultDic as? [String:AnyObject] {
-                    let payStatus = self.aliPayResultHandler(dic)
+                    let payStatus = self.aliPayResultHandler(resultDic: dic)
                     self.payCallBack?(payStatus)
                 }
             })
@@ -36,9 +37,9 @@ public class CGYPayAliService: BaseCGYPay {
      */
     override public func handleOpenURL(url: NSURL) {
         guard url.host == "safepay" || url.host == "platformapi" else { return }
-        AlipaySDK.defaultService().processOrderWithPaymentResult(url, standbyCallback: { [unowned self] resultDic in
+        AlipaySDK.defaultService().processOrder(withPaymentResult: url as URL!, standbyCallback: { [unowned self] resultDic in
             if let dic = resultDic as? [String:AnyObject] {
-                let payStatus = self.aliPayResultHandler(dic)
+                let payStatus = self.aliPayResultHandler(resultDic: dic)
                 self.payCallBack?(payStatus)
             }
         })
@@ -53,7 +54,7 @@ public class CGYPayAliService: BaseCGYPay {
      */
     private func aliPayResultHandler(resultDic: [String:AnyObject]) -> CGYPayStatusCode {
         var payStatus: CGYPayStatusCode
-        switch resultDic["resultStatus"]!.intValue {
+        switch (resultDic["resultStatus"]! as! NSNumber).intValue {
         case 9000:
             payStatus = CGYPayStatusCode.PaySuccess(wxPayResult: nil, aliPayResult: resultDic["result"]?.stringValue, upPayResult: nil)
         case 8000:

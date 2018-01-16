@@ -16,17 +16,18 @@ public class CGYPayUPService: BaseCGYPay {
         return _sharedInstance
     }
     
-    override public func sendPay(channel: CGYPayChannel, callBack: CGYPayCompletedBlock) {
+    //override
+    public func sendPay(channel: CGYPayChannel, callBack: @escaping CGYPayCompletedBlock) {
         payCallBack = callBack
         if case .upPay(let order) = channel {
-            UPPaymentControl.defaultControl().startPay(order.tn, fromScheme: order.appScheme, mode: order.mode, viewController: order.viewController)
+            UPPaymentControl.default().startPay(order.tn, fromScheme: order.appScheme, mode: order.mode, viewController: order.viewController)
         }
     }
     
     override public func handleOpenURL(url: NSURL) {
         guard "uppayresult" == url.host else { return }
-        UPPaymentControl.defaultControl().handlePaymentResult(url) { [unowned self] stringCode, resultDic in
-            switch stringCode {
+        UPPaymentControl.default().handlePaymentResult(url as URL!) { [unowned self] stringCode, resultDic in
+            switch stringCode! {//pzz加！
             case "success":
                 self.payCallBack?(CGYPayStatusCode.PaySuccess(wxPayResult: nil, aliPayResult: nil, upPayResult: resultDic as! [String:AnyObject]?))
             case "cancel":

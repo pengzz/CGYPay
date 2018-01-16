@@ -15,17 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        CGYPay.registerWxAPP("appid")
+        CGYPay.registerWxAPP(appid: "appid")
         
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return CGYPay.handlerOpenURL(url)
+        return CGYPay.handlerOpenURL(url: url)
     }
     
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        return CGYPay.handlerOpenURL(url)
+        return CGYPay.handlerOpenURL(url: url)
     }
     
     func applicationWillResignActive(application: UIApplication) {

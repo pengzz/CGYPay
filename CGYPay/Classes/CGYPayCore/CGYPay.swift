@@ -19,19 +19,19 @@ public class CGYPay: NSObject {
         switch channel {
         case .weixin:
             if let wxPay = wxPay {
-                wxPay.sendPay(channel, callBack: callBack)
+                wxPay.sendPay(channel: channel, callBack: callBack)
             } else {
                 callBack(.PayErrSDKNotFound)
             }
         case .aliPay:
             if let aliPay = aliPay {
-                aliPay.sendPay(channel, callBack: callBack)
+                aliPay.sendPay(channel: channel, callBack: callBack)
             } else {
                 callBack(.PayErrSDKNotFound)
             }
         case .upPay:
             if let upPay = upPay {
-                upPay.sendPay(channel, callBack: callBack)
+                upPay.sendPay(channel: channel, callBack: callBack)
             } else {
                 callBack(.PayErrSDKNotFound)
             }
@@ -47,13 +47,13 @@ public class CGYPay: NSObject {
      */
     public class func handlerOpenURL(url: NSURL) -> Bool {
         if let wxPay = wxPay {
-            wxPay.handleOpenURL(url)
+            wxPay.handleOpenURL(url: url)
         }
         if let aliPay = aliPay {
-            aliPay.handleOpenURL(url)
+            aliPay.handleOpenURL(url: url)
         }
         if let upPay = upPay {
-            upPay.handleOpenURL(url)
+            upPay.handleOpenURL(url: url)
         }
         return true
     }
@@ -65,23 +65,23 @@ public class CGYPay: NSObject {
      */
     public class func registerWxAPP(appid: String) {
         if let wxPay = wxPay {
-            wxPay.registerWxAPP(appid)
+            wxPay.registerWxAPP(appid: appid)
         }
     }
     
     // 银联支付
     private static var upPay: BaseCGYPay? = {
-        let upPayType = NSObject.cgy_classFromString("CGYPayUPService") as? BaseCGYPay.Type
+        let upPayType = NSObject.cgy_classFromString(className: "CGYPayUPService") as? BaseCGYPay.Type
         return upPayType?.sharedInstance
     }()
     // 微信支付
     private static var wxPay: BaseCGYPay? = {
-        let wxPayType = NSObject.cgy_classFromString("CGYPayWxService") as? BaseCGYPay.Type
+        let wxPayType = NSObject.cgy_classFromString(className: "CGYPayWxService") as? BaseCGYPay.Type
         return wxPayType?.sharedInstance
     }()
     // 支付宝支付
     private static var aliPay: BaseCGYPay? = {
-        let aliPayType = NSObject.cgy_classFromString("CGYPayAliService") as? BaseCGYPay.Type
+        let aliPayType = NSObject.cgy_classFromString(className: "CGYPayAliService") as? BaseCGYPay.Type
         return aliPayType?.sharedInstance
     }()
 }

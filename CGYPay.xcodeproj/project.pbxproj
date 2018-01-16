@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B875213200DFD160031CE30 /* NSObject+ZZclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875212200DFD160031CE30 /* NSObject+ZZclass.m */; };
+		1B875216200DFE950031CE30 /* ZZPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875215200DFE950031CE30 /* ZZPay.m */; };
+		1B87521C200E02210031CE30 /* ZZPayAliPayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87521B200E02210031CE30 /* ZZPayAliPayOrder.m */; };
+		1B87521F200E02560031CE30 /* ZZPayUpOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87521E200E02560031CE30 /* ZZPayUpOrder.m */; };
+		1B875222200E02800031CE30 /* ZZPayWxOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875221200E02800031CE30 /* ZZPayWxOrder.m */; };
+		1B875225200E02CC0031CE30 /* ZZPayAliService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875224200E02CC0031CE30 /* ZZPayAliService.m */; };
+		1B875228200E02F50031CE30 /* ZZPayUPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875227200E02F50031CE30 /* ZZPayUPService.m */; };
+		1B87522B200E030B0031CE30 /* ZZPayWxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87522A200E030B0031CE30 /* ZZPayWxService.m */; };
+		1B87522E200E053B0031CE30 /* NHAliOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87522D200E053B0031CE30 /* NHAliOrder.m */; };
+		1B875238200E28E20031CE30 /* ZZBasePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875236200E28E20031CE30 /* ZZBasePay.m */; };
 		83639ACA1CA50E9400708E8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83639AC91CA50E9400708E8E /* AppDelegate.swift */; };
 		83639ACC1CA50E9400708E8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83639ACB1CA50E9400708E8E /* ViewController.swift */; };
 		83639ACF1CA50E9400708E8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83639ACD1CA50E9400708E8E /* Main.storyboard */; };
@@ -39,6 +49,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B87520A200DF78C0031CE30 /* ZZSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZSingleton.h; sourceTree = "<group>"; };
+		1B875211200DFD160031CE30 /* NSObject+ZZclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZZclass.h"; sourceTree = "<group>"; };
+		1B875212200DFD160031CE30 /* NSObject+ZZclass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZZclass.m"; sourceTree = "<group>"; };
+		1B875214200DFE950031CE30 /* ZZPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPay.h; sourceTree = "<group>"; };
+		1B875215200DFE950031CE30 /* ZZPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPay.m; sourceTree = "<group>"; };
+		1B875217200DFF370031CE30 /* ZZPayConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayConstant.h; sourceTree = "<group>"; };
+		1B87521A200E02210031CE30 /* ZZPayAliPayOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayAliPayOrder.h; sourceTree = "<group>"; };
+		1B87521B200E02210031CE30 /* ZZPayAliPayOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayAliPayOrder.m; sourceTree = "<group>"; };
+		1B87521D200E02560031CE30 /* ZZPayUpOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayUpOrder.h; sourceTree = "<group>"; };
+		1B87521E200E02560031CE30 /* ZZPayUpOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayUpOrder.m; sourceTree = "<group>"; };
+		1B875220200E02800031CE30 /* ZZPayWxOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayWxOrder.h; sourceTree = "<group>"; };
+		1B875221200E02800031CE30 /* ZZPayWxOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayWxOrder.m; sourceTree = "<group>"; };
+		1B875223200E02CC0031CE30 /* ZZPayAliService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZZPayAliService.h; path = CGYPay/Classes/AlipaySDK/ZZPayAliService.h; sourceTree = SOURCE_ROOT; };
+		1B875224200E02CC0031CE30 /* ZZPayAliService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZZPayAliService.m; path = CGYPay/Classes/AlipaySDK/ZZPayAliService.m; sourceTree = SOURCE_ROOT; };
+		1B875226200E02F50031CE30 /* ZZPayUPService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayUPService.h; sourceTree = "<group>"; };
+		1B875227200E02F50031CE30 /* ZZPayUPService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayUPService.m; sourceTree = "<group>"; };
+		1B875229200E030B0031CE30 /* ZZPayWxService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayWxService.h; sourceTree = "<group>"; };
+		1B87522A200E030B0031CE30 /* ZZPayWxService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayWxService.m; sourceTree = "<group>"; };
+		1B87522C200E053B0031CE30 /* NHAliOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHAliOrder.h; sourceTree = "<group>"; };
+		1B87522D200E053B0031CE30 /* NHAliOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHAliOrder.m; sourceTree = "<group>"; };
+		1B875236200E28E20031CE30 /* ZZBasePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBasePay.m; sourceTree = "<group>"; };
+		1B875237200E28E20031CE30 /* ZZBasePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBasePay.h; sourceTree = "<group>"; };
 		83639AC61CA50E9400708E8E /* CGYPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGYPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83639AC91CA50E9400708E8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83639ACB1CA50E9400708E8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +134,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B875209200DF74B0031CE30 /* ZZPayCore */ = {
+			isa = PBXGroup;
+			children = (
+				1B87520A200DF78C0031CE30 /* ZZSingleton.h */,
+				1B875211200DFD160031CE30 /* NSObject+ZZclass.h */,
+				1B875212200DFD160031CE30 /* NSObject+ZZclass.m */,
+				1B875237200E28E20031CE30 /* ZZBasePay.h */,
+				1B875236200E28E20031CE30 /* ZZBasePay.m */,
+				1B875214200DFE950031CE30 /* ZZPay.h */,
+				1B875215200DFE950031CE30 /* ZZPay.m */,
+				1B875217200DFF370031CE30 /* ZZPayConstant.h */,
+				1B87521A200E02210031CE30 /* ZZPayAliPayOrder.h */,
+				1B87521B200E02210031CE30 /* ZZPayAliPayOrder.m */,
+				1B87522C200E053B0031CE30 /* NHAliOrder.h */,
+				1B87522D200E053B0031CE30 /* NHAliOrder.m */,
+				1B87521D200E02560031CE30 /* ZZPayUpOrder.h */,
+				1B87521E200E02560031CE30 /* ZZPayUpOrder.m */,
+				1B875220200E02800031CE30 /* ZZPayWxOrder.h */,
+				1B875221200E02800031CE30 /* ZZPayWxOrder.m */,
+			);
+			path = ZZPayCore;
+			sourceTree = "<group>";
+		};
 		83639ABD1CA50E9400708E8E = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +218,7 @@
 		839684F21CAD042F00A55FD1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1B875209200DF74B0031CE30 /* ZZPayCore */,
 				839685171CAD149A00A55FD1 /* CGYPayCore */,
 				839685281CAD695C00A55FD1 /* AlipaySDK */,
 				839684FF1CAD042F00A55FD1 /* UPPaySDK */,
@@ -176,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				839685001CAD042F00A55FD1 /* CGYPayUPService.swift */,
+				1B875226200E02F50031CE30 /* ZZPayUPService.h */,
+				1B875227200E02F50031CE30 /* ZZPayUPService.m */,
 				839685011CAD042F00A55FD1 /* libPaymentControl.a */,
 				839685021CAD042F00A55FD1 /* UPPaymentControl.h */,
 			);
@@ -186,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				839685041CAD042F00A55FD1 /* CGYPayWxService.swift */,
+				1B875229200E030B0031CE30 /* ZZPayWxService.h */,
+				1B87522A200E030B0031CE30 /* ZZPayWxService.m */,
 				839685051CAD042F00A55FD1 /* libWeChatSDK.a */,
 				839685061CAD042F00A55FD1 /* WechatAuthSDK.h */,
 				839685071CAD042F00A55FD1 /* WXApi.h */,
@@ -212,6 +272,8 @@
 		839685281CAD695C00A55FD1 /* AlipaySDK */ = {
 			isa = PBXGroup;
 			children = (
+				1B875223200E02CC0031CE30 /* ZZPayAliService.h */,
+				1B875224200E02CC0031CE30 /* ZZPayAliService.m */,
 				839685291CAD695C00A55FD1 /* AlipaySDK.framework */,
 				8396852A1CAD695C00A55FD1 /* CGYPayAliService.swift */,
 			);
@@ -245,7 +307,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Chakery;
 				TargetAttributes = {
 					83639AC51CA50E9400708E8E = {
@@ -290,18 +352,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B875216200DFE950031CE30 /* ZZPay.m in Sources */,
 				839685231CAD149A00A55FD1 /* CGYPayAliPayOrder.swift in Sources */,
+				1B87522B200E030B0031CE30 /* ZZPayWxService.m in Sources */,
+				1B875228200E02F50031CE30 /* ZZPayUPService.m in Sources */,
 				83639ACC1CA50E9400708E8E /* ViewController.swift in Sources */,
 				839685271CAD149A00A55FD1 /* CGYPayWxOrder.swift in Sources */,
+				1B875225200E02CC0031CE30 /* ZZPayAliService.m in Sources */,
+				1B87522E200E053B0031CE30 /* NHAliOrder.m in Sources */,
 				8396852C1CAD695D00A55FD1 /* CGYPayAliService.swift in Sources */,
+				1B875222200E02800031CE30 /* ZZPayWxOrder.m in Sources */,
 				83639ACA1CA50E9400708E8E /* AppDelegate.swift in Sources */,
 				839685151CAD042F00A55FD1 /* CGYPayWxService.swift in Sources */,
 				839685131CAD042F00A55FD1 /* CGYPayUPService.swift in Sources */,
 				839685221CAD149A00A55FD1 /* CGYPay.swift in Sources */,
+				1B87521F200E02560031CE30 /* ZZPayUpOrder.m in Sources */,
 				839685241CAD149A00A55FD1 /* CGYPayChannel.swift in Sources */,
 				839685211CAD149A00A55FD1 /* CGYNSObjectExtension.swift in Sources */,
+				1B875238200E28E20031CE30 /* ZZBasePay.m in Sources */,
 				839685261CAD149A00A55FD1 /* CGYPayUpOrder.swift in Sources */,
 				839685201CAD149A00A55FD1 /* BaseCGYPay.swift in Sources */,
+				1B87521C200E02210031CE30 /* ZZPayAliPayOrder.m in Sources */,
+				1B875213200DFD160031CE30 /* NSObject+ZZclass.m in Sources */,
 				839685251CAD149A00A55FD1 /* CGYPayConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,13 +409,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -382,13 +462,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -407,6 +495,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -439,6 +528,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccggyy.CGYPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CGYPay/CGYPay-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -471,6 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccggyy.CGYPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CGYPay/CGYPay-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

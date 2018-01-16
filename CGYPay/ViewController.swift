@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         let order = CGYPayWxOrder(partnerId: "商家id", prepayid: "预支付订单id", nonceStr: "随机字符串", timeStamp: 111111111, package: "扩展字段", sign: "签名")
         
-        CGYPay.createPayment(.weixin(order: order)) { status in
+        CGYPay.createPayment(channel: .weixin(order: order)) { status in
             switch status {
             case .PaySuccess(let wxPayResult, _, _):
                 print("支付成功: \(wxPayResult)")
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         
         let order = CGYPayAliPayOrder(partner: "商家id", seller_id: "商家支付宝账号", out_trade_no: "订单id", subject: "商品标题", body: "商品描述", total_fee: "总价格", notify_url: "url回调", sign: "签名", appScheme: "com.ccggyy.cgypay")
         
-        CGYPay.createPayment(.aliPay(order: order)) { status in
+        CGYPay.createPayment(channel: .aliPay(order: order)) { status in
             switch status {
             case .PaySuccess(_, let aliPayResult, _):
                 print("支付成功: \(aliPayResult)")
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         
         let order = CGYPayUpOrder(tn: "201603311049141648338", appScheme: "com.ccggyy.cgypay", mode: "01", viewController: self)
         
-        CGYPay.createPayment(.upPay(order: order)) { status in
+        CGYPay.createPayment(channel: .upPay(order: order)) { status in
             switch status {
             case .PaySuccess(_, _, let upPayResult):
                 print("银联支付成功: \(upPayResult)")

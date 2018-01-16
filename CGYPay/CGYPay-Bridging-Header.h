@@ -19,4 +19,8 @@
 // 银联支付
 #import "UPPaymentControl.h"
 
+//pzz添加
+#import "ZZPayConstant.h"
+#import "ZZPayConstant.h"
+
 #endif /* CGYPay_Bridging_Header_h */

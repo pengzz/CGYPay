@@ -16,20 +16,21 @@ public class CGYPayWxService: BaseCGYPay, WXApiDelegate {
         return _sharedInstance
     }
     
-    public func onReq(req: BaseReq!) {
+    public func onReq(_ req: BaseReq!) {
         
     }
     
-    public func onResp(resp: BaseResp!) {
+    public func onResp(_ resp: BaseResp!) {
         // 微信支付
         if resp is PayResp {
-            payResponseParse(resp as! PayResp)
+            payResponseParse(payResp: resp as! PayResp)
         }
         // 其他微信的响应, 可以在这里添加...
     }
     
     // 发送微信支付
-    override public func sendPay(channel: CGYPayChannel, callBack: CGYPayCompletedBlock) {
+    //override
+    public func sendPay(channel: CGYPayChannel, callBack: @escaping CGYPayCompletedBlock) {
         if case .weixin(let order)  = channel {
             guard WXApi.isWXAppInstalled() else {
                 callBack(.PayErrWxUnInstall)
@@ -42,7 +43,7 @@ public class CGYPayWxService: BaseCGYPay, WXApiDelegate {
             req.timeStamp = order.timeStamp
             req.package = order.package
             req.sign = order.sign
-            WXApi.sendReq(req)
+            WXApi.send(req)
             payCallBack = callBack
         }
     }
@@ -54,7 +55,7 @@ public class CGYPayWxService: BaseCGYPay, WXApiDelegate {
      */
     override public func handleOpenURL(url: NSURL) {
         guard "pay" == url.host else { return }
-        WXApi.handleOpenURL(url, delegate: self)
+        WXApi.handleOpen(url as URL!, delegate: self)
     }
     
     /**
