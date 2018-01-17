@@ -2,229 +2,225 @@
 //  ZZPayAliPayOrder.m
 //  CGYPay
 //
-//  Created by PengZhiZhong on 2018/1/16.
+//  Created by PengZhiZhong on 2018/1/17.
 //  Copyright © 2018年 Chakery. All rights reserved.
 //
 
 #import "ZZPayAliPayOrder.h"
+#import <AlipaySDK/AlipaySDK.h>//TO DO
 
 @implementation ZZPayAliPayOrder
 
--(instancetype)initWith_partner:(NSString*)partner
-                      seller_id:(NSString*)seller_id
-                   out_trade_no:(NSString*)out_trade_no
-                        subject:(NSString*)subject
-                           body:(NSString*)body
-                      total_fee:(NSString*)total_fee
-                     notify_url:(NSString*)notify_url
-                   payment_type:(NSString*)payment_type//String = "1",
-                           sign:(NSString*)sign
-                      appScheme:(NSString*)appScheme {
-    self = [super init];
-    if(payment_type==nil){
-        payment_type = @"1";
-    }
-    self.partner = partner;
-    self.seller_id = seller_id;
-    self.out_trade_no = out_trade_no;
-    self.subject = subject;
-    self.body = body;
-    self.total_fee = total_fee;
-    self.notify_url = notify_url;
-    self.service = @"mobile.securitypay.pay";
-    self.payment_type = payment_type;
-    self.input_charset = @"utf-8";
-    self.sign = sign;
-    self.sign_type = @"RSA";
-    self.appScheme = appScheme;
-    return self;
-}
-
-//extension CGYPayAliPayOrder {
-/**
- 把参数拼接成订单字符串
- 
- - returns: 调起支付的订单字符串
- */
--(NSString*)toOrderString{
-    NSMutableString *mStr = [NSMutableString string];
-    [mStr appendString:[NSString stringWithFormat:@"partner=%@",_partner]];
-    [mStr appendString:[NSString stringWithFormat:@"&seller_id=%@",_seller_id]];
-    [mStr appendString:[NSString stringWithFormat:@"&out_trade_no=%@",_out_trade_no]];
-    [mStr appendString:[NSString stringWithFormat:@"&subject=%@",_subject]];
-    [mStr appendString:[NSString stringWithFormat:@"&body=%@",_body]];
-    [mStr appendString:[NSString stringWithFormat:@"&total_fee=%@",_total_fee]];
-    [mStr appendString:[NSString stringWithFormat:@"&notify_url=%@",_notify_url]];
-    [mStr appendString:[NSString stringWithFormat:@"&service=%@",_service]];
-    [mStr appendString:[NSString stringWithFormat:@"&payment_type=%@",_payment_type]];
-    [mStr appendString:[NSString stringWithFormat:@"&_input_charset=%@",_input_charset]];//?
-    [mStr appendString:[NSString stringWithFormat:@"&sign=%@",_sign]];
-    [mStr appendString:[NSString stringWithFormat:@"&sign_type=%@",_sign_type]];
-    //
-    if(1){
-        if(_it_b_pay){
-            [mStr appendString:[NSString stringWithFormat:@"&it_b_pay=%@",_it_b_pay]];
-        }
-        if(_app_id){
-            [mStr appendString:[NSString stringWithFormat:@"&app_id=%@",_app_id]];
-        }
-        if(_appenv){
-            [mStr appendString:[NSString stringWithFormat:@"&appenv=%@",_appenv]];
-        }
-        if(_goods_type){
-            [mStr appendString:[NSString stringWithFormat:@"&goods_type=%@",_goods_type]];
-        }
-        if(_rn_check){
-            [mStr appendString:[NSString stringWithFormat:@"&rn_check=%@",_rn_check]];
-        }
-        if(_extern_token){
-            [mStr appendString:[NSString stringWithFormat:@"&extern_token=%@",_extern_token]];
-        }
-        if(_out_context){
-            [mStr appendString:[NSString stringWithFormat:@"&out_context=%@",_out_context]];
-        }
-    }
-    
-    //以下略
-//    var orderstring = "partner=\"\(partner)\
-//    "&seller_id=\"\(seller_id)\
-//    "&out_trade_no=\"\(out_trade_no)\
-//    "&subject=\"\(subject)\
-//    "&body=\"\(body)\
-//    "&total_fee=\"\(total_fee)\
-//    "&notify_url=\"\(notify_url)\
-//    "&service=\"\(service)\
-//    "&payment_type=\"\(payment_type)\
-//    "&_input_charset=\"\(_input_charset)\
-//    "&sign=\"\(sign)\
-//    "&sign_type=\"\(sign_type)\""
-    
-//    if let it_b_pay = it_b_pay {
-//        orderstring += "&it_b_pay=\"\(it_b_pay)\""
-//    }
-//    if let app_id = app_id {
-//        orderstring += "&app_id=\"\(app_id)\""
-//    }
-//    if let appenv = appenv {
-//        orderstring += "&appenv=\"\(appenv)\""
-//    }
-//    if let goods_type = goods_type {
-//        orderstring += "&goods_type=\"\(goods_type)\""
-//    }
-//    if let rn_check = rn_check {
-//        orderstring += "&rn_check=\"\(rn_check)\""
-//    }
-//    if let extern_token = extern_token {
-//        orderstring += "&extern_token=\"\(extern_token)\""
-//    }
-//    if let out_context = out_context {
-//        orderstring += "&out_context=\"\(out_context)\""
-//    }
-    
-    return mStr;
-}
-
-
-
-
-#pragma mark - 222222222222222222222222222222222222
-
-- (NSString *)orderInfoEncoded:(BOOL)bEncoded {
-    if (_app_id.length <= 0) {
-        return nil;
-    }
-    
-    // NOTE: 增加不变部分数据
-    NSMutableDictionary *tmpDict = [NSMutableDictionary new];
-    [tmpDict addEntriesFromDictionary:@{@"partner":_partner,
-                                        @"method":_seller_id,
-                                        @"out_trade_no":_out_trade_no,
-                                        @"subject":_subject,
-                                        @"body":_body,
-                                        @"total_fee":_total_fee,
-                                        @"notify_url":_notify_url,
-                                        @"service":_service,
-                                        @"payment_type":_payment_type,
-                                        @"_input_charset":_input_charset?:@"utf-8",
-                                        @"sign":_sign,
-                                        @"sign_type":_sign_type?:@"RSA"
-                                        }];
-    
-    if(1){
-        if(_it_b_pay){
-            [tmpDict setValue:_it_b_pay forKey:@"it_b_pay"];
-        }
-        if(_app_id){
-            [tmpDict setValue:_app_id forKey:@"app_id"];
-        }
-        if(_appenv){
-            [tmpDict setValue:_appenv forKey:@"appenv"];
-        }
-        if(_goods_type){
-            [tmpDict setValue:_goods_type forKey:@"goods_type"];
-        }
-        if(_rn_check){
-            [tmpDict setValue:_rn_check forKey:@"rn_check"];
-        }
-        if(_extern_token){
-            [tmpDict setValue:_extern_token forKey:@"extern_token"];
-        }
-        if(_out_context){
-            [tmpDict setValue:_out_context forKey:@"out_context"];
-        }
-    }
-    
-//    // NOTE: 增加可变部分数据
-//    if (_format.length > 0) {
-//        [tmpDict setObject:_format forKey:@"format"];
-//    }
-//
-//    if (_return_url.length > 0) {
-//        [tmpDict setObject:_return_url forKey:@"return_url"];
-//    }
-//
-//    if (_notify_url.length > 0) {
-//        [tmpDict setObject:_notify_url forKey:@"notify_url"];
-//    }
-//
-//    if (_app_auth_token.length > 0) {
-//        [tmpDict setObject:_app_auth_token forKey:@"app_auth_token"];
-//    }
-    
-    // NOTE: 排序，得出最终请求字串
-    NSArray* sortedKeyArray = [[tmpDict allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-        return [obj1 compare:obj2];
-    }];
-    
-    NSMutableArray *tmpArray = [NSMutableArray new];
-    for (NSString* key in sortedKeyArray) {
-        NSString* orderItem = [self orderItemWithKey:key andValue:[tmpDict objectForKey:key] encoded:bEncoded];
-        if (orderItem.length > 0) {
-            [tmpArray addObject:orderItem];
-        }
-    }
-    return [tmpArray componentsJoinedByString:@"&"];
-}
-
-- (NSString*)orderItemWithKey:(NSString*)key andValue:(NSString*)value encoded:(BOOL)bEncoded
+#pragma mark 把参数拼接成订单字符串(不包括sign)
+-(NSString*)toOrderString_orderInfoEncoded
 {
-    if (key.length > 0 && value.length > 0) {
-        if (bEncoded) {
-            value = [self encodeValue:value];
+    NSString *appScheme = self.appScheme;
+    if(appScheme==nil){
+        //BundleID//调用支付的app注册在info.plist中的scheme
+        appScheme = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+    }
+
+    ZZPay_APOrderInfo* order = self;
+    //将商品信息拼接成字符串
+    NSString *orderInfo = [order orderInfoEncoded:NO];
+    NSString *orderInfoEncoded = [order orderInfoEncoded:YES];
+    NSLog(@"orderSpec = %@",orderInfo);
+    
+    // NOTE: 获取私钥并将商户信息签名，外部商户的加签过程请务必放在服务端，防止公私钥数据泄露；
+    //       需要遵循RSA签名规范，并将签名字符串base64编码和UrlEncode
+    NSString *signedString = self.sign;
+    if(signedString==nil){//pzz加判断
+        Class classType=NSClassFromString(@"ZZPay_APRSASigner");
+        if (classType) {
+//            ZZPay_APRSASigner* signer = [[ZZPay_APRSASigner alloc] initWithPrivateKey:((rsa2PrivateKey.length > 1)?rsa2PrivateKey:rsaPrivateKey)];
+//            if ((rsa2PrivateKey.length > 1)) {
+//                signedString = [signer signString:orderInfo withRSA2:YES];
+//            } else {
+//                signedString = [signer signString:orderInfo withRSA2:NO];
+//            }
         }
-        return [NSString stringWithFormat:@"%@=%@", key, value];
+    }
+    
+//    // NOTE: 如果加签成功，则继续执行支付
+//    if (signedString != nil) {
+//        // NOTE: 将签名成功字符串格式化为订单字符串,请严格按照该格式
+//        NSString *orderString = [NSString stringWithFormat:@"%@&sign=%@",
+//                                 orderInfoEncoded, signedString];
+//        //return orderString;
+//    }
+    
+    return orderInfoEncoded;
+}
+#pragma mark 把参数拼接成订单字符串(包括sign)
+-(NSString*)toOrderString
+{
+    ZZPay_APOrderInfo* order = self;
+    
+    //将商品信息拼接成字符串
+    NSString *orderInfo = [order orderInfoEncoded:NO];
+    NSString *orderInfoEncoded = [order orderInfoEncoded:YES];
+    NSLog(@"orderSpec = %@",orderInfo);
+    
+    // NOTE: 获取私钥并将商户信息签名，外部商户的加签过程请务必放在服务端，防止公私钥数据泄露；
+    //       需要遵循RSA签名规范，并将签名字符串base64编码和UrlEncode
+    NSString *signedString = self.sign;
+    if(signedString==nil){//pzz加判断
+        Class classType=NSClassFromString(@"ZZPay_APRSASigner");
+        if (classType) {
+//            ZZPay_APRSASigner* signer = [[ZZPay_APRSASigner alloc] initWithPrivateKey:((rsa2PrivateKey.length > 1)?rsa2PrivateKey:rsaPrivateKey)];
+//            if ((rsa2PrivateKey.length > 1)) {
+//                signedString = [signer signString:orderInfo withRSA2:YES];
+//            } else {
+//                signedString = [signer signString:orderInfo withRSA2:NO];
+//            }
+        }
+    }
+    
+    // NOTE: 如果加签成功，则继续执行支付
+    if (signedString != nil) {
+        // NOTE: 将签名成功字符串格式化为订单字符串,请严格按照该格式
+        NSString *orderString = [NSString stringWithFormat:@"%@&sign=%@",
+                                 orderInfoEncoded, signedString];
+        return orderString;
     }
     return nil;
 }
 
-- (NSString*)encodeValue:(NSString*)value
+#pragma mark   ==============产生随机订单号==============
++(NSString *)generateTradeNO
 {
-    NSString* encodedValue = value;
-    if (value.length > 0) {
-        encodedValue = (__bridge_transfer  NSString*)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)value, NULL, (__bridge CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 );
+    static int kNumber = 15;
+    NSString *sourceStr = @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    NSMutableString *resultStr = [[NSMutableString alloc] init];
+    srand((unsigned)time(0));
+    for (int i = 0; i < kNumber; i++)
+    {
+        unsigned index = rand() % [sourceStr length];
+        NSString *oneStr = [sourceStr substringWithRange:NSMakeRange(index, 1)];
+        [resultStr appendString:oneStr];
     }
-    return encodedValue;
+    return resultStr;
 }
+
+
+
+
+
+
+
+
+
+#pragma mark   ==============点击订单模拟支付行为==============
+#pragma mark   ==============点击订单模拟支付行为==============
+//
+// 选中商品调用支付宝极简支付
+//
+- (void)doAPPay
+{
+    // 重要说明
+    // 这里只是为了方便直接向商户展示支付宝的整个支付流程；所以Demo中加签过程直接放在客户端完成；
+    // 真实App里，privateKey等数据严禁放在客户端，加签过程务必要放在服务端完成；
+    // 防止商户私密数据泄露，造成不必要的资金损失，及面临各种安全风险；
+    /*============================================================================*/
+    /*=======================需要填写商户app申请的===================================*/
+    /*============================================================================*/
+    NSString *appID = @"";
+    
+    // 如下私钥，rsa2PrivateKey 或者 rsaPrivateKey 只需要填入一个
+    // 如果商户两个都设置了，优先使用 rsa2PrivateKey
+    // rsa2PrivateKey 可以保证商户交易在更加安全的环境下进行，建议使用 rsa2PrivateKey
+    // 获取 rsa2PrivateKey，建议使用支付宝提供的公私钥生成工具生成，
+    // 工具地址：https://doc.open.alipay.com/docs/doc.htm?treeId=291&articleId=106097&docType=1
+    NSString *rsa2PrivateKey = @"";
+    NSString *rsaPrivateKey = @"";
+    /*============================================================================*/
+    /*============================================================================*/
+    /*============================================================================*/
+    
+    //partner和seller获取失败,提示
+    if ([appID length] == 0 ||
+        ([rsa2PrivateKey length] == 0 && [rsaPrivateKey length] == 0))
+    {
+        //        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+        //                                                                       message:@"缺少appId或者私钥,请检查参数设置"
+        //                                                                preferredStyle:UIAlertControllerStyleAlert];
+        //        UIAlertAction *action = [UIAlertAction actionWithTitle:@"知道了"
+        //                                                         style:UIAlertActionStyleDefault
+        //                                                       handler:^(UIAlertAction *action){
+        //
+        //                                                       }];
+        //        [alert addAction:action];
+        //        [self presentViewController:alert animated:YES completion:^{ }];
+        //        return;
+    }
+    
+    /*
+     *生成订单信息及签名
+     */
+    //将商品信息赋予AlixPayOrder的成员变量
+    ZZPay_APOrderInfo* order = [ZZPay_APOrderInfo new];
+    
+    // NOTE: app_id设置
+    order.app_id = appID;
+    
+    // NOTE: 支付接口名称
+    order.method = @"alipay.trade.app.pay";
+    
+    // NOTE: 参数编码格式
+    order.charset = @"utf-8";
+    
+    // NOTE: 当前时间点
+    NSDateFormatter* formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    order.timestamp = [formatter stringFromDate:[NSDate date]];
+    
+    // NOTE: 支付版本
+    order.version = @"1.0";
+    
+    // NOTE: sign_type 根据商户设置的私钥来决定
+    order.sign_type = (rsa2PrivateKey.length > 1)?@"RSA2":@"RSA";
+    
+    // NOTE: 商品数据
+    order.biz_content = [ZZPay_APBizContent new];
+    order.biz_content.body = @"我是测试数据";
+    order.biz_content.subject = @"1";
+    order.biz_content.out_trade_no = [ZZPayAliPayOrder generateTradeNO]; //订单ID（由商家自行制定）
+    order.biz_content.timeout_express = @"30m"; //超时时间设置
+    order.biz_content.total_amount = [NSString stringWithFormat:@"%.2f", 0.01]; //商品价格
+    
+    //将商品信息拼接成字符串
+    NSString *orderInfo = [order orderInfoEncoded:NO];
+    NSString *orderInfoEncoded = [order orderInfoEncoded:YES];
+    NSLog(@"orderSpec = %@",orderInfo);
+    
+    // NOTE: 获取私钥并将商户信息签名，外部商户的加签过程请务必放在服务端，防止公私钥数据泄露；
+    //       需要遵循RSA签名规范，并将签名字符串base64编码和UrlEncode
+    NSString *signedString = nil;
+    if(0){
+//        ZZPay_APRSASigner* signer = [[ZZPay_APRSASigner alloc] initWithPrivateKey:((rsa2PrivateKey.length > 1)?rsa2PrivateKey:rsaPrivateKey)];
+//        if ((rsa2PrivateKey.length > 1)) {
+//            signedString = [signer signString:orderInfo withRSA2:YES];
+//        } else {
+//            signedString = [signer signString:orderInfo withRSA2:NO];
+//        }
+    }
+    
+    // NOTE: 如果加签成功，则继续执行支付
+    if (signedString != nil) {
+        //应用注册scheme,在AliSDKDemo-Info.plist定义URL types
+        NSString *appScheme = @"alisdkdemo";
+        
+        // NOTE: 将签名成功字符串格式化为订单字符串,请严格按照该格式
+        NSString *orderString = [NSString stringWithFormat:@"%@&sign=%@",
+                                 orderInfoEncoded, signedString];
+        
+        // NOTE: 调用支付结果开始支付
+        [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+            NSLog(@"reslut = %@",resultDic);
+        }];
+    }
+}
+
 
 
 @end

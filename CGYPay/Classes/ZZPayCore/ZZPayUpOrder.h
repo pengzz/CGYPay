@@ -10,5 +10,4 @@
 //银联支付处理model
 @interface ZZPayUpOrder : NSObject
 
-
 @end

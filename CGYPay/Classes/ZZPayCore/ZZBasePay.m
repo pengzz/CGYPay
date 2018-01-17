@@ -9,15 +9,15 @@
 #import "ZZBasePay.h"
 
 @implementation ZZBasePay
-//NSSingletonM(Instance)
-+ (instancetype)sharedInstance {
-    static dispatch_once_t onceToken;
-    static ZZBasePay *instance = nil;
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-    });
-    return instance;
-}
+NSSingletonM(Instance)
+//+ (instancetype)sharedInstance {
+//    static dispatch_once_t onceToken;
+//    static ZZBasePay *instance = nil;
+//    dispatch_once(&onceToken, ^{
+//        instance = [[self alloc] init];
+//    });
+//    return instance;
+//}
 
 
 - (void)handleOpenURL:(NSURL *)url {

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (ZZClass)
-
+//字符串转换成Class对象
 +(Class)zz_classFromString:(NSString*)className;
-//class func zz_classFromString(className: String) -> AnyClass? {
 @end

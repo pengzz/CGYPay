@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGYPay-Bridging-Header.h"
+#import "CGYPay-Swift.h"
 #import "ZZPay.h"
+#import "ZZPay_APRSASigner+ZZPaySign.h"//签名辅助
+
 
 @interface TestViewController : UIViewController
 

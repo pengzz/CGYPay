@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         CGYPay.createPayment(channel: .weixin(order: order)) { status in
             switch status {
             case .PaySuccess(let wxPayResult, _, _):
-                print("支付成功: \(wxPayResult)")
+                print("支付成功: \(String(describing: wxPayResult))")
             default:
                 print("支付失败")
             }
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         CGYPay.createPayment(channel: .aliPay(order: order)) { status in
             switch status {
             case .PaySuccess(_, let aliPayResult, _):
-                print("支付成功: \(aliPayResult)")
+                print("支付成功: \(String(describing: aliPayResult))")
             default:
                 print("支付失败")
             }
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         CGYPay.createPayment(channel: .upPay(order: order)) { status in
             switch status {
             case .PaySuccess(_, _, let upPayResult):
-                print("银联支付成功: \(upPayResult)")
+                print("银联支付成功: \(String(describing: upPayResult))")
             default:
                 print("银联支付失败")
             }

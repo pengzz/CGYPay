@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 public class CGYPay: NSObject {
     /**
      调起支付

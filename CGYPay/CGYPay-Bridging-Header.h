@@ -21,7 +21,7 @@
 
 //pzz添
 //#import "ZZPayConstant.h"
-
+//
 ////#import <Foundation/Foundation.h>
 ////引入一些头文件
 //#import "ZZSingleton.h"
@@ -35,6 +35,7 @@
 //#import "ZZPayAliService.h"
 //#import "ZZPayUPService.h"
 //#import "ZZPayWxService.h"
+//#import "ZZPay.h"
 
 
 

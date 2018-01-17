@@ -28,15 +28,14 @@
 //    let  cls: AnyClass? = NSClassFromString(classStringName)
 //    return cls
 //}
+
 +(Class)zz_classFromString:(NSString*)className
 {
     Class pkClass=NSClassFromString(className);//@"PKAddPassesViewController");
-    
     if (pkClass) {
         //NSLog(@"available");
         // 如果可以使用，我们可以使用passkit的一些功能
-    }else
-    {
+    }else{
         //NSLog(@"unavailable");
        //如果不可以，我们就要提示用户，或者进行一些其他的处理
     }

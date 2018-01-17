@@ -37,7 +37,7 @@
 //        }
 //    }
 //}
--(void)createPayment:(ZZPayChannel)channel order:(id)order callBack:(ZZPayCompleteBlock)callBack
++(void)createPayment:(ZZPayChannel)channel order:(id)order callBack:(ZZPayCompleteBlock)callBack
 {
     switch (channel) {
         case ZZPayChannel_aliPay:
@@ -93,7 +93,7 @@
 //}
 
 //public class func handlerOpenURL(url: NSURL) -> Bool
--(BOOL)handleOpenURL:(NSURL*)url
++(BOOL)handleOpenURL:(NSURL*)url
 {
     if([ZZPay aliPay]){
         [[ZZPay aliPay] handleOpenURL:url];
@@ -166,31 +166,26 @@
 //}()
 +(ZZBasePay*)aliPay
 {
-    ZZBasePay* sharedInstance = ({
-        ZZBasePay *pay=nil;
-        Class classType = [NSObject zz_classFromString:@"ZZPayAliService"];
-        if(classType){
-            if([classType isKindOfClass:[ZZBasePay class]]){
-                pay = [(classType) sharedInstance];
-            }
-        }else{
-            pay = nil;
-        }
-        pay;
-    });
+    ZZBasePay* sharedInstance = nil;
+    Class classType = [NSObject zz_classFromString:@"ZZPayAliService"];
+    if(classType){
+        //if([classType isKindOfClass:[ZZBasePay class]]){
+        sharedInstance = [classType sharedInstance];
+        //}
+    }else{
+        sharedInstance = nil;
+    }
     return sharedInstance;
     //下面这个或许理简单
 //    if(2-2){
-//        Class aliPayType=NSClassFromString(@"ZZPayAliService");
-//        if (aliPayType) {
-//            //NSLog(@"available");
-//            // 如果可以使用，我们可以使用passkit的一些功能
-//            [aliPayType sharedInstance];
+//       ZZBasePay* sharedInstance = nil;
+//        Class classType=NSClassFromString(@"ZZPayAliService");
+//        if (classType) {
+//            sharedInstance = [classType sharedInstance];
 //        }else{
-//            //NSLog(@"unavailable");
-//            //如果不可以，我们就要提示用户，或者进行一些其他的处理
-//            return nil;
+//            sharedInstance = nil;
 //        }
+//        return sharedInstance;
 //    }
 }
 

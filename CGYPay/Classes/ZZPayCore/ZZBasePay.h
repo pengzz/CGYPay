@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZZPayConstant.h"//TO DO
+#import "ZZPayConstant.h"
 
-//@class ZZBasePay;
 @protocol ZZBasePayAble <NSObject>
 @required
 -(void)handleOpenURL:(NSURL*)url;
@@ -18,19 +17,10 @@
 -(void)registerWxAPP:(NSString*)appid;
 @end
 
-@interface ZZBasePay: NSObject//<ZZBasePayAble>
-//NSSingletonH(sharedInstance)
-+ (instancetype)sharedInstance;
-- (void)handleOpenURL:(NSURL *)url;
-- (void)sendPay:(ZZPayChannel)channel order:(id)order callBack:(ZZPayCompleteBlock)callback;
+@interface ZZBasePay: NSObject<ZZBasePayAble>
+NSSingletonH(Instance)
+//+ (instancetype)sharedInstance;
 @end
 
-//#import <Foundation/Foundation.h>
-//
-//@interface ZZBasePay : NSObject
-//+ (instancetype)sharedInstance;
-//- (void)handleOpenURL:(NSURL *)url;
-//- (void)sendPay:(ZZPayChannel)channel order:(id)order callBack:(ZZPayCompleteBlock)callback;
-//@end
 
 

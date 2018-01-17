@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZZPayConstant.h"//TO DO
 #import "ZZBasePay.h"
 #import "NSObject+ZZclass.h"
+#import "ZZPayConstant.h"//TO DO
 
-#import <Foundation/Foundation.h>
 //引入一些头文件
 #import "ZZPayConstant.h"
 //
@@ -22,10 +21,10 @@
 #import "ZZPayAliPayOrder.h"
 #import "ZZPayUpOrder.h"
 #import "ZZPayWxOrder.h"
-//
-#import "ZZPayAliService.h"
-#import "ZZPayUPService.h"
-#import "ZZPayWxService.h"
+//最后这三个暂不加
+//#import "ZZPayAliService.h"
+//#import "ZZPayUPService.h"
+//#import "ZZPayWxService.h"
 
 @interface ZZPay : NSObject
 
@@ -36,16 +35,16 @@
  - parameter callBack: 支付回调
  */
 //public class func createPayment(channel: CGYPayChannel, callBack: CGYPayCompletedBlock);
--(void)createPayment:(ZZPayChannel)channel order:(id)order callBack:(ZZPayCompleteBlock)callBack;
++(void)createPayment:(ZZPayChannel)channel order:(id)order callBack:(ZZPayCompleteBlock)callBack;
 
 /**
-从APP返回时执行的回调
-
-- parameter url: url
-
-- returns:
-*/
-//public class func handlerOpenURL(url: NSURL) -> Bool;
+ 从APP返回时执行的回调
+ 
+ - parameter url: url
+ 
+ - returns:
+ */
++(BOOL)handleOpenURL:(NSURL*)url;
 
 /**
  注册微信

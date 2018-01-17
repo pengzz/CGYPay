@@ -11,7 +11,6 @@
 #ifndef ZZPay_Constant_h
 #define ZZPay_Constant_h
 
-
 /**
  Synthsize a weak or strong reference.
  
@@ -55,6 +54,39 @@
 #endif
 #endif
 #endif
+
+
+#pragma mark -单位处理代码
+// .h文件
+#define NSSingletonH(name) + (instancetype)shared##name;
+// .m文件
+#define NSSingletonM(name) \
+static id _instance; \
+\
++ (instancetype)allocWithZone:(struct _NSZone *)zone \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [super allocWithZone:zone]; \
+}); \
+return _instance; \
+} \
+\
++ (instancetype)shared##name \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [[self alloc] init]; \
+}); \
+return _instance; \
+} \
+\
+- (id)copyWithZone:(NSZone *)zone \
+{ \
+return _instance; \
+}
+
+
 
 /**
  支付通道
@@ -138,9 +170,11 @@ typedef void(^ZZPayCompleteBlock)(ZZPayStatusCode payStatus, ZZPayChannel payCha
 
 
 //#import <Foundation/Foundation.h>
+//#import "ZZSingleton.h"
+
 ////引入一些头文件
 //#import "ZZSingleton.h"
-////#import "ZZBasePay.h"
+//#import "ZZBasePay.h"
 //#import "NSObject+ZZclass.h"
 //#import "ZZPay.h"
 //#import "ZZPayAliPayOrder.h"
@@ -148,11 +182,8 @@ typedef void(^ZZPayCompleteBlock)(ZZPayStatusCode payStatus, ZZPayChannel payCha
 //#import "ZZPayWxOrder.h"
 ////
 //#import "ZZPayAliService.h"
-////#import "ZZPayUPService.h"
-////#import "ZZPayWxService.h"
-
-
-
+//#import "ZZPayUPService.h"
+//#import "ZZPayWxService.h"
 
 
 
