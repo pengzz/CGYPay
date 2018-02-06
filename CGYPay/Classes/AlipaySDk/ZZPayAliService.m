@@ -11,8 +11,8 @@
 @implementation ZZPayAliService
 NSSingletonM(Instance)
 
-// 发送支付宝支付
--(void)sendPay:(ZZPayChannel)channel order:(ZZPayAliPayOrder*)order callBack:(ZZPayCompleteBlock)callback;
+//发送支付宝支付
+-(void)sendPay:(ZZPayChannel)channel order:(ZZPayAliPayOrder*)order callBack:(ZZPayCompleteBlock)callback
 {
     self.payCallBack = callback;
     if(channel==ZZPayChannel_aliPay){
@@ -53,7 +53,7 @@ NSSingletonM(Instance)
     ZZPayStatusCode payStatus;
     switch ([(NSNumber*)resultDic[@"resultStatus"] intValue]) {
     case 9000:
-            payStatus = ZZPayStatusCode_PaySuccess;//(wxPayResult: nil, aliPayResult: resultDic["result"]?.stringValue, upPayResult: nil)
+            payStatus = ZZPayStatusCode_PaySuccess;
     case 8000:
             payStatus = ZZPayStatusCode_PayProcessing;
     case 4000:

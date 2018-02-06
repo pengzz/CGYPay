@@ -46,12 +46,9 @@
  */
 +(BOOL)handleOpenURL:(NSURL*)url;
 
-/**
- 注册微信
- 
- - parameter appid: appid
- */
-//public class func registerWxAPP;//
+//注册微信
+-(void)registerWxAPP:(NSString*)appid;
+
 
 //// 银联支付
 //private static var upPay: BaseCGYPay? = {

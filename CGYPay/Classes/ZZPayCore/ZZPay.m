@@ -15,28 +15,6 @@
  - parameter channel:  支付渠道
  - parameter callBack: 支付回调
  */
-//public class func createPayment(channel: CGYPayChannel, callBack: CGYPayCompletedBlock) {
-//    switch channel {
-//    case .weixin:
-//        if let wxPay = wxPay {
-//            wxPay.sendPay(channel: channel, callBack: callBack)
-//        } else {
-//            callBack(.PayErrSDKNotFound)
-//        }
-//    case .aliPay:
-//        if let aliPay = aliPay {
-//            aliPay.sendPay(channel: channel, callBack: callBack)
-//        } else {
-//            callBack(.PayErrSDKNotFound)
-//        }
-//    case .upPay:
-//        if let upPay = upPay {
-//            upPay.sendPay(channel: channel, callBack: callBack)
-//        } else {
-//            callBack(.PayErrSDKNotFound)
-//        }
-//    }
-//}
 +(void)createPayment:(ZZPayChannel)channel order:(id)order callBack:(ZZPayCompleteBlock)callBack
 {
     switch (channel) {
@@ -51,20 +29,20 @@
             break;
         case ZZPayChannel_weixin:
         {
-//            if let wxPay = wxPay {
-//                wxPay.sendPay(channel: channel, callBack: callBack)
-//            } else {
-//                callBack(.PayErrSDKNotFound)
-//            }
+            if([ZZPay wxPay]){
+                [[ZZPay wxPay] sendPay:channel order:order callBack:callBack];
+            }else{
+                callBack(ZZPayStatusCode_PayErrSDKNotFound,ZZPayChannel_weixin,nil);
+            }
         }
             break;
         case ZZPayChannel_upPay:
         {
-//            if let upPay = upPay {
-//                upPay.sendPay(channel: channel, callBack: callBack)
-//            } else {
-//                callBack(.PayErrSDKNotFound)
-//            }
+            if([ZZPay upPay]){
+                [[ZZPay upPay] sendPay:channel order:order callBack:callBack];
+            }else{
+                callBack(ZZPayStatusCode_PayErrSDKNotFound,ZZPayChannel_upPay,nil);
+            }
         }
             break;
         default:
@@ -72,58 +50,29 @@
     }
 }
 
-/**
- 从APP返回时执行的回调
-
- - parameter url: url
-
- - returns:
- */
-//public class func handlerOpenURL(url: NSURL) -> Bool {
-//    if let wxPay = wxPay {
-//        wxPay.handleOpenURL(url: url)
-//    }
-//    if let aliPay = aliPay {
-//        aliPay.handleOpenURL(url: url)
-//    }
-//    if let upPay = upPay {
-//        upPay.handleOpenURL(url: url)
-//    }
-//    return true
-//}
-
-//public class func handlerOpenURL(url: NSURL) -> Bool
+#pragma mark - 从APP返回时执行的回调:handleOpenURL
 +(BOOL)handleOpenURL:(NSURL*)url
 {
     if([ZZPay aliPay]){
         [[ZZPay aliPay] handleOpenURL:url];
     }
-//    if let wxPay = wxPay {
-//        wxPay.handleOpenURL(url: url)
-//    }
-//    if let upPay = upPay {
-//        upPay.handleOpenURL(url: url)
-//    }
+    if([ZZPay wxPay]){
+        [[ZZPay wxPay] handleOpenURL:url];
+    }
+    if([ZZPay upPay]){
+        [[ZZPay upPay] handleOpenURL:url];
+    }
     return YES;
 }
 
-/**
- 注册微信
-
- - parameter appid: appid
- */
-//public class func registerWxAPP(appid: String) {
-//    if let wxPay = wxPay {
-//        wxPay.registerWxAPP(appid: appid)
-//    }
-//}
--(void)registerWxAPP:(NSString*)appid
-{
-    //    if let wxPay = wxPay {
-    //        wxPay.registerWxAPP(appid: appid)
-    //    }
+#pragma mark - 注册微信
+-(void)registerWxAPP:(NSString*)appid {
+    if([ZZPay wxPay]){
+        [[ZZPay wxPay] registerWxAPP:appid];
+    }
 }
 
+#pragma mark - 三种支付单例获取
 //// 银联支付
 //private static var upPay: BaseCGYPay? = {
 //    let upPayType = NSObject.cgy_classFromString(className: "CGYPayUPService") as? BaseCGYPay.Type
@@ -140,37 +89,13 @@
 //    return aliPayType?.sharedInstance
 //}()
 
-
-// 银联支付
-//private static var upPay: BaseCGYPay? = {
-//+(BaseZZPay2*)upPay
-//{
-//    id sharedInstance = ({
-//        Class upPayType = (BaseZZPay2*)[NSObject zz_classFromString(className: "ZZPayUPService")];
-//        if(upPayType){
-//            return [upPayType sharedInstance];
-//        }else{
-//            return nil;
-//        }
-//    });
-//}
-// 微信支付
-//private static var wxPay: BaseCGYPay? = {
-//    let wxPayType = NSObject.cgy_classFromString(className: "CGYPayWxService") as? BaseCGYPay.Type
-//    return wxPayType?.sharedInstance
-//}()
-// 支付宝支付
-//private static var aliPay: BaseCGYPay? = {
-//    let aliPayType = NSObject.cgy_classFromString(className: "CGYPayAliService") as? BaseCGYPay.Type
-//    return aliPayType?.sharedInstance
-//}()
-+(ZZBasePay*)aliPay
-{
+//支付宝支付
++(ZZBasePay*)aliPay {
     ZZBasePay* sharedInstance = nil;
     Class classType = [NSObject zz_classFromString:@"ZZPayAliService"];
     if(classType){
         //if([classType isKindOfClass:[ZZBasePay class]]){
-        sharedInstance = [classType sharedInstance];
+            sharedInstance = [classType sharedInstance];
         //}
     }else{
         sharedInstance = nil;
@@ -188,5 +113,29 @@
 //        return sharedInstance;
 //    }
 }
+//微信支付
++(ZZBasePay*)wxPay {
+    ZZBasePay* sharedInstance = nil;
+    Class classType=NSClassFromString(@"ZZPayWxService");
+    if (classType) {
+        sharedInstance = [classType sharedInstance];
+    }else{
+        sharedInstance = nil;
+    }
+    return sharedInstance;
+}
+
+//银联支付
++(ZZBasePay*)upPay {
+    ZZBasePay* sharedInstance = nil;
+    Class classType=NSClassFromString(@"ZZPayUPService");
+    if (classType) {
+        sharedInstance = [classType sharedInstance];
+    }else{
+        sharedInstance = nil;
+    }
+    return sharedInstance;
+}
+
 
 @end

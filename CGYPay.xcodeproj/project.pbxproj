@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B528ED32029BB8500B5A3CA /* ZZPayWxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B528ED22029BB8500B5A3CA /* ZZPayWxService.m */; };
 		1B8145CB200F2ED500D0798A /* ZZPay_APOrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8145CA200F2ED500D0798A /* ZZPay_APOrderInfo.m */; };
 		1B8145ED200F390200D0798A /* ZZPayAliPayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8145EC200F390200D0798A /* ZZPayAliPayOrder.m */; };
 		1B814603200F3D5E00D0798A /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8145F6200F3D5E00D0798A /* openssl_wrapper.m */; };
@@ -17,7 +18,6 @@
 		1B87521F200E02560031CE30 /* ZZPayUpOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87521E200E02560031CE30 /* ZZPayUpOrder.m */; };
 		1B875222200E02800031CE30 /* ZZPayWxOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875221200E02800031CE30 /* ZZPayWxOrder.m */; };
 		1B875228200E02F50031CE30 /* ZZPayUPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875227200E02F50031CE30 /* ZZPayUPService.m */; };
-		1B87522B200E030B0031CE30 /* ZZPayWxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B87522A200E030B0031CE30 /* ZZPayWxService.m */; };
 		1B875238200E28E20031CE30 /* ZZBasePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B875236200E28E20031CE30 /* ZZBasePay.m */; };
 		1BBDB21E200F52BC00AF96BC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBDB21C200F52BC00AF96BC /* libcrypto.a */; };
 		1BBDB21F200F52BC00AF96BC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBDB21D200F52BC00AF96BC /* libssl.a */; };
@@ -55,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B528ED12029BB8500B5A3CA /* ZZPayWxService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPayWxService.h; sourceTree = "<group>"; };
+		1B528ED22029BB8500B5A3CA /* ZZPayWxService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPayWxService.m; sourceTree = "<group>"; };
 		1B8145C9200F2ED400D0798A /* ZZPay_APOrderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPay_APOrderInfo.h; sourceTree = "<group>"; };
 		1B8145CA200F2ED500D0798A /* ZZPay_APOrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPay_APOrderInfo.m; sourceTree = "<group>"; };
 		1B8145EB200F390200D0798A /* ZZPayAliPayOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayAliPayOrder.h; sourceTree = "<group>"; };
@@ -77,8 +79,6 @@
 		1B875221200E02800031CE30 /* ZZPayWxOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayWxOrder.m; sourceTree = "<group>"; };
 		1B875226200E02F50031CE30 /* ZZPayUPService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayUPService.h; sourceTree = "<group>"; };
 		1B875227200E02F50031CE30 /* ZZPayUPService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayUPService.m; sourceTree = "<group>"; };
-		1B875229200E030B0031CE30 /* ZZPayWxService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPayWxService.h; sourceTree = "<group>"; };
-		1B87522A200E030B0031CE30 /* ZZPayWxService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPayWxService.m; sourceTree = "<group>"; };
 		1B875236200E28E20031CE30 /* ZZBasePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBasePay.m; sourceTree = "<group>"; };
 		1B875237200E28E20031CE30 /* ZZBasePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBasePay.h; sourceTree = "<group>"; };
 		1BBDB1CB200F4FC700AF96BC /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
@@ -227,9 +227,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B528ED52029BE0000B5A3CA /* TestWechatTool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TestWechatTool;
+			sourceTree = "<group>";
+		};
 		1B8145EE200F3D2200D0798A /* ZZPayHelper */ = {
 			isa = PBXGroup;
 			children = (
+				1B528ED52029BE0000B5A3CA /* TestWechatTool */,
 				1B8145EF200F3D2200D0798A /* AlipaySDk_Helper */,
 			);
 			path = ZZPayHelper;
@@ -461,8 +469,8 @@
 		839685031CAD042F00A55FD1 /* WxSDK */ = {
 			isa = PBXGroup;
 			children = (
-				1B875229200E030B0031CE30 /* ZZPayWxService.h */,
-				1B87522A200E030B0031CE30 /* ZZPayWxService.m */,
+				1B528ED12029BB8500B5A3CA /* ZZPayWxService.h */,
+				1B528ED22029BB8500B5A3CA /* ZZPayWxService.m */,
 				1BBDB225200F541A00AF96BC /* libWeChatSDK.a */,
 				1BBDB226200F541A00AF96BC /* WechatAuthSDK.h */,
 				1BBDB227200F541A00AF96BC /* WXApi.h */,
@@ -573,11 +581,11 @@
 			files = (
 				1B875216200DFE950031CE30 /* ZZPay.m in Sources */,
 				839685231CAD149A00A55FD1 /* CGYPayAliPayOrder.swift in Sources */,
-				1B87522B200E030B0031CE30 /* ZZPayWxService.m in Sources */,
 				1B875228200E02F50031CE30 /* ZZPayUPService.m in Sources */,
 				83639ACC1CA50E9400708E8E /* ViewController.swift in Sources */,
 				839685271CAD149A00A55FD1 /* CGYPayWxOrder.swift in Sources */,
 				1BFE6E91200E2E05004344BD /* TestViewController.m in Sources */,
+				1B528ED32029BB8500B5A3CA /* ZZPayWxService.m in Sources */,
 				1B81461E200F40D100D0798A /* ZZPay_APRSASigner+ZZPaySign.m in Sources */,
 				8396852C1CAD695D00A55FD1 /* CGYPayAliService.swift in Sources */,
 				1B875222200E02800031CE30 /* ZZPayWxOrder.m in Sources */,

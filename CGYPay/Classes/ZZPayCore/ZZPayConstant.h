@@ -162,11 +162,8 @@ typedef NS_ENUM(NSUInteger, ZZPayStatusCode) {
     ZZPayStatusCode_PayErrUnKnown,
 };
 
-/// 支付回调
-//wxPayResult: String?, aliPayResult: String?, upPayResult: [String:AnyObject]?
-//微信与支付宝payResult为字符串类型，upPay为字典类型
+/// 支付回调（微信与支付宝payResult为字符串类型，upPay为字典类型）
 typedef void(^ZZPayCompleteBlock)(ZZPayStatusCode payStatus, ZZPayChannel payChannel, id payResult);
-//XX TO DO//public typealias CGYPayCompletedBlock = (CGYPayStatusCode) -> Void
 
 
 //#import <Foundation/Foundation.h>

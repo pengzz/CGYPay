@@ -7,15 +7,16 @@
 //
 
 #import "ZZBasePay.h"
-#import <AlipaySDK/AlipaySDK.h>//TO DO
+#import <AlipaySDK/AlipaySDK.h>
 #import "ZZPayAliPayOrder.h"
-#import "ZZPayConstant.h"//TO DO
+#import "ZZPayConstant.h"
 
 @interface ZZPayAliService : ZZBasePay
 NSSingletonH(Instance)
 @property(nonatomic, copy)ZZPayCompleteBlock payCallBack;
 
-// 发送支付宝支付
+#pragma mark - 支付宝支付
+//发送支付宝支付
 -(void)sendPay:(ZZPayChannel)channel order:(ZZPayAliPayOrder*)order callBack:(ZZPayCompleteBlock)callback;
 //新方法：增加直接传orderString方法
 -(void)sendPay:(ZZPayChannel)channel orderStr:(NSString*)orderStr fromScheme:(NSString *)schemeStr callBack:(ZZPayCompleteBlock)callback;
